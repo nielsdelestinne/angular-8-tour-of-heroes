@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Hero} from './hero.model';
-import {HEROES} from './heroes.mock';
 import {HeroService} from '../hero.service';
 
 @Component({
@@ -27,5 +26,14 @@ export class HeroesComponent implements OnInit {
 
   onSelect(singleHero: Hero): void {
     this.selectedHero = singleHero;
+  }
+
+  add(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.heroService.addHero({ name } as Hero)
+      .subscribe(hero => {
+        this.heroes.push(hero);
+      });
   }
 }
