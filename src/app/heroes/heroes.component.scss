@@ -1,0 +1,33 @@
+$color-orange: #ff8d2d;
+$color-dark-orange: #ff5310;
+$color-green: #d2ff6c;
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+ul li {
+  padding-bottom: 2.5em;
+}
+
+ul li .selected {
+  background-color: $color-green;
+}
+
+ul li :hover {
+  background-color: $color-dark-orange;
+  cursor: pointer;
+}
+
+.list-id, .list-label {
+  padding: 1em;
+}
+
+.list-id {
+  background-color: $color-dark-orange;
+}
+
+.list-label {
+  background-color: $color-orange;
+}
