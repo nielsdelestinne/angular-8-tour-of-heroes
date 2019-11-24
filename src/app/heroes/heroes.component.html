@@ -2,11 +2,20 @@
 
 <hr>
 
-<div class="row">
+<div class="row" *ngIf="!heroes">
+  <div class="col">
+    Loading your Heroes...
+    <div class="spinner-border" role="status">
+      <span class="sr-only">(loading...)</span>
+    </div>
+  </div>
+</div>
+
+<div class="row" *ngIf="heroes">
 
   <section id="heroes-overview" class="col-12 col-md-7">
     <ul>
-      <li *ngFor="let singleHero of heroes "
+      <li *ngFor="let singleHero of heroes"
           (click)="onSelect(singleHero)">
         <div class="list-label" id="hero-item-id-{{singleHero.id}}" [class.selected]="singleHero === selectedHero">
           <span class="list-id">{{singleHero.id}}.</span>
