@@ -11,13 +11,14 @@
   </div>
 </div>
 
-<div class="row" id="search-hero">
+
+<div class="row" id="search-hero" *ngIf="heroes.length">
   <div class="col">
     <app-hero-search></app-hero-search>
   </div>
 </div>
 
-<div class="row" id="top-hero-list">
+<div class="row" id="top-hero-list" *ngIf="heroes.length">
   <div class="col-12 col-md-6" *ngFor="let hero of heroes">
     <div class="card" id="top-hero-{{hero.id}}">
       <img src="assets/cat-hero.jpg" class="card-img-top" alt="{{hero.name}}">
