@@ -1,9 +1,9 @@
-<p>heroes works!</p>
+<h2 id="heroes-overview-title">Welcome to the Heroes overview</h2>
 
 <ul>
-  <li *ngFor="let singleHero of heroes"
+  <li *ngFor="let singleHero of heroes "
       (click)="onSelect(singleHero)">
-    <span class="list-id">{{singleHero.id}}.</span> <span class="list-label" [class.selected] = "singleHero === selectedHero">{{singleHero.name}}</span>
+    <span id="hero-id-{{singleHero.id}}">{{singleHero.id}}.</span> <span class="list-label" [class.selected] = "singleHero === selectedHero">{{singleHero.name}}</span>
   </li>
 </ul>
 
