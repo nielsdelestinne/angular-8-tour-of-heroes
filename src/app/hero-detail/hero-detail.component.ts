@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
 import {Hero} from '../core/hero/hero.model';
 import {ActivatedRoute} from '@angular/router';
-import {HeroService} from '../hero.service';
+import {HeroService} from '../core/hero/hero.service';
 import {Location} from '@angular/common';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 
