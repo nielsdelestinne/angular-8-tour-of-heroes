@@ -2,16 +2,26 @@
 
 <hr>
 
-<ul>
-  <li *ngFor="let singleHero of heroes "
-      (click)="onSelect(singleHero)">
-    <div class="list-label" id="hero-item-id-{{singleHero.id}}" [class.selected]="singleHero === selectedHero">
-      <span class="list-id">{{singleHero.id}}.</span>
-      {{singleHero.name}}
-    </div>
+<div class="row">
 
-  </li>
-</ul>
+  <section id="heroes-overview" class="col-12 col-md-7">
+    <ul>
+      <li *ngFor="let singleHero of heroes "
+          (click)="onSelect(singleHero)">
+        <div class="list-label" id="hero-item-id-{{singleHero.id}}" [class.selected]="singleHero === selectedHero">
+          <span class="list-id">{{singleHero.id}}.</span>
+          {{singleHero.name}}
+        </div>
+
+      </li>
+    </ul>
+  </section>
+
+  <section id="create-new-hero" class="col-12 col-md-5">
+    <app-hero-create (newHero)="addHeroToHeroes($event)"></app-hero-create>
+  </section>
+
+</div>
 
 <app-hero-detail [hero]="selectedHero"></app-hero-detail>
 
@@ -22,13 +32,3 @@
     </a>
   </li>
 </ul>
-
-<div>
-  <label>Hero name:
-    <input #heroName/>
-  </label>
-  <!-- (click) passes input value to add() and then clears the input -->
-  <button (click)="add(heroName.value); heroName.value=''">
-    add
-  </button>
-</div>
