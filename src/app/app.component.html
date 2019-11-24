@@ -1,10 +1,38 @@
-<h1>Hello</h1>
+<div class="container" id="main-container">
 
-<nav>
-  <a routerLink="/heroes">Heroes</a><br>
-  <a routerLink="/dashboard">Dashboard</a>
-</nav>
+  <div class="row">
+    <div class="col-12">
+      <nav class=" navbar navbar-expand-lg navbar-dark bg-dark" id="main-navigation">
+        <a class="navbar-brand" href="#">Switchfully ToH</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link" routerLink="/heroes" routerLinkActive="active">Heroes</a>
+            <a class="nav-item nav-link" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
 
-<app-messages></app-messages>
 
-<router-outlet></router-outlet>
+  <div class="row">
+    <div class="col-12 col-md-8">
+      <main id="main-content">
+        <router-outlet></router-outlet>
+      </main>
+    </div>
+    <div class="col-12 col-md-4">
+      <aside id="messages-sidebar">
+        <app-messages></app-messages>
+      </aside>
+    </div>
+  </div>
+</div>
+
+
+
+
