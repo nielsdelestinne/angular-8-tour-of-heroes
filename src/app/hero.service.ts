@@ -1,10 +1,9 @@
 import {Injectable} from '@angular/core';
 import {Hero} from './heroes/hero.model';
-import {HEROES} from './heroes/heroes.mock';
 import {Observable, of} from 'rxjs';
 import {MessagesService} from './messages.service';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {catchError, map, tap} from 'rxjs/operators';
+import {catchError, tap} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
