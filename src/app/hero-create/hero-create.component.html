@@ -6,11 +6,22 @@
 
   <hr>
 
-  <div>
+  <form [formGroup]="heroForm" (ngSubmit)="create()" novalidate>
     <label for="name-for-hero">Name for Hero:</label>
-    <input #heroName id="name-for-hero" class="form-control"/>
+    <input type="text" formControlName="name" id="name-for-hero" class="form-control"
+           [ngClass]="{
+              'is-valid': heroForm.get('name').valid,
+              'is-invalid': heroForm.get('name').invalid && (heroForm.get('name').dirty || heroForm.get('name').touched)
+           }"
+           required/>
+    <div class="valid-feedback">
+      Such a great name!
+    </div>
+    <div class="invalid-feedback">
+      A name is required and should have a length of 2 or more.
+    </div>
     <hr>
-    <button type="button" class="btn btn-success btn-block" (click)="create(heroName.value); heroName.value=''">Create</button>
-  </div>
+    <button class="btn btn-success btn-block" type="submit" [disabled]="!heroForm.valid">Create</button>
+  </form>
 
 </div>
