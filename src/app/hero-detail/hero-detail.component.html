@@ -1,15 +1,31 @@
-<div *ngIf="hero">
+<div id="hero-detail-component" *ngIf="hero && showComponent">
 
-  <h2 id="hero-detail-title">{{hero.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{hero.id}}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="hero.name" placeholder="name"/>
-    </label>
-  </div>
+  <h3 id="hero-detail-title">
+    Hero detail
+  </h3>
 
-  <button (click)="goBack()">go back</button>
+  <hr>
 
-  <button (click)="save()">save</button>
+  <h4>{{hero.name | uppercase}} ({{hero.id}}) </h4>
+
+
+  <form [formGroup]="heroUpdateForm" (ngSubmit)="update()" novalidate>
+    <label for="name-for-hero">Name for Hero:</label>
+    <input type="text" formControlName="name" id="name-for-hero" class="form-control"
+           [ngClass]="{
+              'is-valid': heroUpdateForm.get('name').valid && (heroUpdateForm.get('name').dirty || heroUpdateForm.get('name').touched),
+              'is-invalid': heroUpdateForm.get('name').invalid && (heroUpdateForm.get('name').dirty || heroUpdateForm.get('name').touched)
+           }"
+           required/>
+    <div class="valid-feedback">
+      Such a great name!
+    </div>
+    <div class="invalid-feedback">
+      A name is required and should have a length of 2 or more.
+    </div>
+    <hr>
+    <button class="btn btn-success btn-block" type="submit" [disabled]="!heroUpdateForm.valid">Update</button>
+  </form>
+  <button class="btn btn-success btn-block" type="button" (click)="goBack()" *ngIf="showGoBackButton">go back</button>
 
 </div>

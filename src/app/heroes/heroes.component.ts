@@ -31,4 +31,11 @@ export class HeroesComponent implements OnInit {
   addHeroToHeroes(newHero: Hero) {
     this.heroes.push(newHero);
   }
+
+  updateHero(updatedHero: Hero) {
+    const indexOfHeroToUpdate = this.heroes
+      .map(hero => hero.id)
+      .indexOf(updatedHero.id);
+    this.heroes[indexOfHeroToUpdate] = updatedHero;
+  }
 }

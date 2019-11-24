@@ -27,17 +27,7 @@
   </section>
 
   <section id="create-new-hero" class="col-12 col-md-5">
+    <app-hero-detail [hero]="selectedHero" [showGoBackButton]="false" (updatedHero)="updateHero($event)" *ngIf="selectedHero"></app-hero-detail>
     <app-hero-create (newHero)="addHeroToHeroes($event)"></app-hero-create>
   </section>
-
 </div>
-
-<app-hero-detail [hero]="selectedHero"></app-hero-detail>
-
-<ul class="heroes">
-  <li *ngFor="let hero of heroes">
-    <a routerLink="/detail/{{hero.id}}">
-      <span class="badge">{{hero.id}}</span> {{hero.name}}
-    </a>
-  </li>
-</ul>
