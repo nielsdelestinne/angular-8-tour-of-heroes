@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
-import {Hero} from '../heroes/hero.model';
+import {Hero} from '../core/hero/hero.model';
 import {ActivatedRoute} from '@angular/router';
 import {HeroService} from '../hero.service';
 import {Location} from '@angular/common';

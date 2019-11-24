@@ -1,6 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {HeroService} from '../hero.service';
-import {Hero} from '../heroes/hero.model';
+import {Hero} from '../core/hero/hero.model';
 import {FormControl, FormGroup, Validator, Validators} from '@angular/forms';
 
 @Component({
