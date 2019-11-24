@@ -17,7 +17,7 @@ export class HeroDetailComponent implements OnInit, OnChanges {
   @Output() updatedHero = new EventEmitter<Hero>();
 
   heroUpdateForm: FormGroup;
-  showComponent: boolean;
+  showComponent = true;
 
   constructor(
     private route: ActivatedRoute,
@@ -28,16 +28,24 @@ export class HeroDetailComponent implements OnInit, OnChanges {
   ngOnInit() {
     if (!this.hero) {
       this.getHero();
+    } else {
+      this.createForm();
     }
+  }
+
+  private createForm() {
     this.heroUpdateForm = new FormGroup({
       name: new FormControl(this.hero.name, [Validators.required, Validators.minLength(2)])
     });
   }
 
-  getHero(): void {
+  private getHero(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.heroService.getHero(id)
-      .subscribe(hero => this.hero = hero);
+      .subscribe(hero => {
+        this.hero = hero;
+        this.createForm();
+      });
   }
 
   update(): void {
@@ -47,7 +55,9 @@ export class HeroDetailComponent implements OnInit, OnChanges {
         this.showComponent = false;
         this.heroUpdateForm.reset();
         this.updatedHero.emit(hero);
-        // this.goBack();
+        if (this.showGoBackButton) {
+          this.goBack();
+        }
       });
   }
 
@@ -62,4 +72,5 @@ export class HeroDetailComponent implements OnInit, OnChanges {
       this.heroUpdateForm.setValue({name: this.hero.name});
     }
   }
+
 }
