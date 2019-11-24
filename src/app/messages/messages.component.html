@@ -7,7 +7,7 @@
 
 <ul id="message-list" *ngIf="messageService.messages.length">
   <li *ngFor='let message of messageService.messages; index as messageIndex' id="message-item-{{messageIndex}}">
-    {{message}}
+    <span class="badge badge-danger" *ngIf="message.includes('failed')">ERROR</span> {{message}}
   </li>
 </ul>
 

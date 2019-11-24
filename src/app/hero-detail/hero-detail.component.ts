@@ -43,7 +43,7 @@ export class HeroDetailComponent implements OnInit, OnChanges {
     const id = +this.route.snapshot.paramMap.get('id');
     this.heroService.getHero(id)
       .subscribe(hero => {
-        this.hero = hero;
+        this.hero = hero ? hero : {id: -1, name: 'Unknown'};
         this.createForm();
       });
   }
