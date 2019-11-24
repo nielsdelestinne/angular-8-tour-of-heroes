@@ -27,7 +27,7 @@ describe('HeroService', () => {
     expect(heroService).toBeTruthy();
   });
 
-  it('#getHeroes should return all heroes', () => {
+  it('getHeroes should return all heroes', () => {
     spyOn(messageService, 'add');
 
     heroService.getHeroes()
@@ -41,7 +41,7 @@ describe('HeroService', () => {
     expect(messageService.add).toHaveBeenCalled();
   });
 
-  it('#getHero should return the hero found for the given id', () => {
+  it('getHero should return the hero found for the given id', () => {
     spyOn(messageService, 'add');
 
     heroService.getHero(1)
@@ -54,7 +54,7 @@ describe('HeroService', () => {
     expect(messageService.add).toHaveBeenCalled();
   });
 
-  it('#updateHero should update the hero with the updated information', () => {
+  it('updateHero should update the hero with the updated information', () => {
     spyOn(messageService, 'add');
     const updatedHero = {id: 1, name: 'Batmanana'};
 
@@ -68,7 +68,7 @@ describe('HeroService', () => {
     expect(messageService.add).toHaveBeenCalled();
   });
 
-  it('#addHero should add the new hero to all heroes', () => {
+  it('addHero should add the new hero to all heroes', () => {
     spyOn(messageService, 'add');
     const newHero = {id: 3, name: 'Wonderwomanski'};
 
@@ -82,7 +82,7 @@ describe('HeroService', () => {
     expect(messageService.add).toHaveBeenCalled();
   });
 
-  it('#searchHero should return the heroes matching the search criteria', () => {
+  it('searchHero should return the heroes matching the search criteria', () => {
     spyOn(messageService, 'add');
 
     heroService.searchHeroes('bat')
@@ -96,7 +96,7 @@ describe('HeroService', () => {
     expect(messageService.add).toHaveBeenCalled();
   });
 
-  it('#searchHero should return an empty result if an empty search criteria is provided', () => {
+  it('searchHero should return an empty result if an empty search criteria is provided', () => {
     spyOn(messageService, 'add');
 
     heroService.searchHeroes('wolv')
