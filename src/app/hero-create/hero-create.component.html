@@ -1,0 +1,16 @@
+<div id="hero-create-component">
+
+  <h3 id="hero-create-title">
+    Create a Hero
+  </h3>
+
+  <hr>
+
+  <div>
+    <label for="name-for-hero">Name for Hero:</label>
+    <input #heroName id="name-for-hero" class="form-control"/>
+    <hr>
+    <button type="button" class="btn btn-success btn-block" (click)="create(heroName.value); heroName.value=''">Create</button>
+  </div>
+
+</div>
