@@ -1,16 +1,15 @@
-import { AppPage } from './app.po';
-import { browser, logging } from 'protractor';
+import {browser, logging} from 'protractor';
+import {HeroesPage} from './pages/heroes.po';
+import {DashboardPage} from './pages/dashboard.po';
 
 describe('workspace-project App', () => {
-  let page: AppPage;
 
-  beforeEach(() => {
-    page = new AppPage();
-  });
+  let dashboardPage: DashboardPage;
 
-  it('should display welcome message', () => {
-    page.navigateTo();
-    expect(page.getTitleText()).toEqual('tour-of-heroes app is running!');
+  beforeEach(() => dashboardPage = new HeroesPage().navigateTo());
+
+  it('should show the dashboard with the correct title', () => {
+    dashboardPage.assertOnPage();
   });
 
   afterEach(async () => {
@@ -20,4 +19,5 @@ describe('workspace-project App', () => {
       level: logging.Level.SEVERE,
     } as logging.Entry));
   });
+
 });
