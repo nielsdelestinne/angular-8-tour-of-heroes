@@ -1,7 +1,16 @@
 <div *ngIf="messageService.messages.length">
 
-  <h2>Messages</h2>
-  <button class="clear" (click)="messageService.clear()">clear</button>
-  <div *ngFor='let message of messageService.messages'> {{message}} </div>
+  <h2>
+    Messages
+    <button type="button" class="btn btn-warning" (click)="messageService.clear()">Clear messages</button>
+  </h2>
+
+  <hr>
+
+  <ul id="message-list">
+    <li *ngFor='let message of messageService.messages; index as messageIndex' id="message-item-{{messageIndex}}">
+      {{message}}
+    </li>
+  </ul>
 
 </div>

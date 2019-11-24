@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+
+$color-background: #cbcbcb;
+
+body {
+  background-color: $color-background;
+}
+
+main, aside {
+  margin: 1em;
+  padding: 1em;
+}
+
+aside {
+  border-left: 1px solid rgba(0,0,0,.1)
+}
